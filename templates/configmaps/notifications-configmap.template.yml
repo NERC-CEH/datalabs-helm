@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notifications-config
+  namespace: {{ .Values.namespace }}
+data:
+  config: |
+    {
+      "dev": {{ .Values.notifications.dev }},
+      "email": {
+        "fromDisplayName": "{{ .Values.notifications.email.fromDisplayName }}",
+        "fromAddress": "{{ .Values.notifications.email.fromAddress }}",
+        "toAddresses": "{{ .Values.notifications.email.toAddress }}",
+        "host": "{{ .Values.notifications.email.hostname }}",
+        "port": {{ .Values.notifications.email.port }},
+        "secure": {{ .Values.notifications.email.secure }}
+      }
+    }

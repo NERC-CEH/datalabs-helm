@@ -1,0 +1,107 @@
+# Default values for datalab.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespace:
+environment:
+datalabName:
+domain:
+
+datalabVolume:
+dataVolumeSize:
+internalVolume:
+internalVolumeSize:
+internalVolumeStorageClass:
+sharedRLibs: /data/packages/R/%p/%v
+maxBodySize: 500m
+
+authSignin:
+oidcProviderClientId:
+oidcProviderAudience:
+authorisationAudience:
+authorisationIssuer:
+authorisationIdentifier:
+mongoUserName: datalab
+
+expireNotebooks:
+  expireTimeWarning: 14
+  expireTimeLimit: 21
+  inUseTimeWarning: 8
+
+# Note: When configuring email notification there should be a separate
+# secret created called "email-notification-secret" with two values that
+# are used to authenticate with the defined SMTP server.
+#   - username
+#   - password
+notifications:
+  dev: false
+  email:
+    fromDisplayName:
+    fromAddress:
+    toAddress:
+    hostname:
+    port:
+    secure:
+
+# Turn this on in production!
+useAppArmor: false
+
+catalogueAvailable: false
+catalogueStorage:
+  type:
+  server:
+  rootDirectory:
+catalogueUrl:
+
+datalabAuth:
+  imageName: nerc/authorisation-svc
+  replicas: 1
+  policy: localhost/docker-default
+datalabApp:
+  imageName: nerc/datalab-app
+  replicas: 1
+  policy: localhost/docker-default
+datalabApi:
+  imageName: nerc/datalab-api
+  replicas: 1
+  policy: localhost/docker-default
+infrastructureApi:
+  imageName: nerc/infrastructure-api
+  replicas: 1
+  policy: localhost/docker-default
+datalabDocs:
+  imageName: nerc/docs
+  replicas: 1
+  policy: localhost/docker-default
+defaultBackend:
+  imageName: nerc/default-backend
+  replicas: 1
+  policy: localhost/docker-default
+  version: 0.2.0
+mongo:
+  imageName: mongo
+  version:
+kubectl:
+  imageName: nerc/kubectl
+  version: 0.1.0
+minio:
+  imageName: nerc/minio
+  version: "1.0"
+  replicas: 1
+  connectImage: nerc/connect
+  connectVersion: 1.0.0
+
+metadata-catalogue:
+  enabled: false
+  additionalProfiles: server:datalabs,search:enhanced
+  auth: datalabs
+  claimName:
+    catalogue: catalogue
+    datastore: datastore
+  datalabs:
+    issuer:
+    jwks:
+  hostname:
+  imageTag:
+    catalogue:
+  server: datalabs

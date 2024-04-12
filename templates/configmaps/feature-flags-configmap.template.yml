@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: feature-flag-config
+  namespace: {{ .Values.namespace }}
+data:
+  config: |
+    {
+      "requestProjects": true
+      {{- if .Values.expireNotebooks }},
+      "expireUnusedNotebooks": {
+        "accessTimeWarning": {{ .Values.expireNotebooks.expireTimeWarning }},
+        "accessTimeLimit": {{ .Values.expireNotebooks.expireTimeLimit }},
+        "inUseTimeWarning": {{ .Values.expireNotebooks.inUseTimeWarning }}
+      }
+      {{- end }}
+    }

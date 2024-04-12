@@ -1,0 +1,47 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: datalab-ingress
+  namespace: {{ .Values.namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      if ($request_uri ~* \.(json)) {
+        expires 1M;
+        add_header Cache-Control "no-store, no-cache, must-revalidate";
+      }
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - {{ .Values.datalabName }}.{{ .Values.domain }}
+    - catalogue.{{ .Values.domain }}
+    secretName: tls-secret
+  rules:
+  - host: {{ .Values.datalabName }}.{{ .Values.domain }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: datalab-app-service
+            port: 
+              number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: datalab-api-service
+            port: 
+              number: 8000
+  - host: catalogue.{{ .Values.domain }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: catalogue
+            port: 
+              number: 80

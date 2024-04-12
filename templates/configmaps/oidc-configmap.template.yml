@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oidc-config
+  namespace: {{ .Values.namespace }}
+data:
+  config: |
+    {
+      "oidc": {
+        "userManager": {
+          "client_id": "{{ .Values.oidcProviderClientId }}",
+          "redirect_uri": "https://{{ .Values.datalabName }}.{{ .Values.domain }}/callback",
+          "response_type": "code",
+          "scope": "openid profile",
+          "authority": "https://login.datalabs.ceh.ac.uk",
+          "automaticSilentRenew": true,
+          "accessTokenExpiringNotificationTime": 600,
+          "filterProtocolClaims": true,
+          "loadUserInfo": true,
+          "extraQueryParams": {
+            "audience": "{{ .Values.oidcProviderAudience }}"
+          },
+          "metadata": {
+            "issuer": "https://login.datalabs.ceh.ac.uk/",
+            "authorization_endpoint": "https://login.datalabs.ceh.ac.uk/authorize",
+            "userinfo_endpoint": "https://login.datalabs.ceh.ac.uk/userinfo",
+            "end_session_endpoint": "https://login.datalabs.ceh.ac.uk/v2/logout?returnTo=https://{{ .Values.datalabName }}.{{ .Values.domain }}/&client_id={{ .Values.oidcProviderClientId }}",
+            "jwks_uri": "https://login.datalabs.ceh.ac.uk/.well-known/jwks.json",
+            "token_endpoint": "https://login.datalabs.ceh.ac.uk/oauth/token"
+          }
+        }
+      },
+      "signUp": {
+        "selfService": true,
+        "requestEmail": "appsupport@ceh.ac.uk"
+      }
+    }

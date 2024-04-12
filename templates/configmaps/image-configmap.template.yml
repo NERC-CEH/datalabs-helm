@@ -1,0 +1,181 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: image-config
+  namespace: {{ .Values.namespace }}
+data:
+  config: |
+    {
+      "categories": {
+        "ANALYSIS": {
+          "userActions": {
+            "share": true,
+            "edit": true,
+            "restart": true,
+            "delete": true,
+            "logs": false
+          }
+        },
+        "PUBLISH": {
+          "userActions": {
+            "share": true,
+            "edit": true,
+            "restart": true,
+            "delete": true,
+            "logs": false
+          }
+        },
+        "INFRASTRUCTURE": {},
+        "COMPUTE": {}
+      },
+      "types": {
+        "dask": {
+          "category": "COMPUTE",
+          "versions": [
+            {
+              "image": "daskdev/dask:2.30.0"
+            }
+          ]
+        },
+        "jupyter": {
+          "displayName": "Jupyter",
+          "category": "ANALYSIS",
+          "versions": [
+            {
+              "displayName": "Dask 2023.1/Spark 3.3.0",
+              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+            }
+          ]
+        },
+        "jupyterlab": {
+          "displayName": "JupyterLab",
+          "category": "ANALYSIS",
+          "versions": [
+            {
+              "displayName": "Dask 2023.1/Spark 3.3.0",
+              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+            }
+          ]
+        },
+        "minio": {
+          "category": "INFRASTRUCTURE",
+          "versions": [
+            {
+              "image": "{{ .Values.minio.imageName }}:{{ .Values.minio.version }}",
+              "connectImage": "{{ .Values.minio.connectImage }}:{{ .Values.minio.connectVersion }}"
+            }
+          ]
+        },
+        "nbviewer": {
+          "displayName": "NBViewer",
+          "category": "PUBLISH",
+          "versions": [
+            {
+              "displayName": "Latest",
+              "image": "jupyter/nbviewer:latest"
+            }
+          ]
+        },
+        "panel": {
+          "displayName": "Panel",
+          "category": "PUBLISH",
+          "userCanChooseFile": true,
+          "userCanChooseConda": true,
+          "versions": [
+            {
+              "displayName": "Dask 2023.1/Spark 3.3.0",
+              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+            }
+          ]
+        },
+        "rshiny": {
+          "displayName": "RShiny",
+          "category": "PUBLISH",
+          "userSelectableVersion": true,
+          "versions": [
+            {
+              "default": true,
+              "displayName": "4.3.1",
+              "image": "nerc/rshiny:4.3.1"
+            },
+            {
+              "default": true,
+              "displayName": "4.2.1",
+              "image": "nerc/rshiny:4.2.1"
+            },
+            {
+              "displayName": "4.0.4",
+              "image": "nerc/rshiny:4.0.4f"
+            }
+          ],
+          "userActionOverrides": {
+            "logs": true
+          }
+        },
+        "rstudio": {
+          "displayName": "RStudio",
+          "category": "ANALYSIS",
+          "userSelectableVersion": true,
+          "versions": [
+            {
+              "default": true,
+              "displayName": "4.3.1",
+              "image": "nerc/rstudio:4.3.1",
+              "connectImage": "nerc/zeppelin-connect:1.2.1"
+            },
+            {
+              "displayName": "4.2.1",
+              "image": "nerc/rstudio:4.2.1",
+              "connectImage": "nerc/zeppelin-connect:1.2.1"
+            },
+            {
+              "displayName": "4.0.4",
+              "image": "nerc/rstudio:4.0.4d",
+              "connectImage": "nerc/zeppelin-connect:1.2.1"
+            }
+          ]
+        },
+        "spark": {
+          "category": "COMPUTE",
+          "versions": [
+            {
+              "image": "nerc/spark-k8s:3.1.2"
+            }
+          ],
+          "masterAddress": "spark://spark-master:7077",
+          "sharedRLibs": "/data/packages/R/%p/%v"
+        },
+        "voila": {
+          "displayName": "Voila",
+          "category": "PUBLISH",
+          "userCanChooseFile": true,
+          "versions": [
+            {
+              "displayName": "Dask 2023.1/Spark 3.3.0",
+              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+            }
+          ]
+        },
+        "vscode": {
+          "displayName": "VS Code Server",
+          "category": "ANALYSIS",
+          "versions": [
+            {
+              "displayName": "Miniconda3",
+              "image": "nerc/vscode-server:2b96491b4620-0.0.2"
+            }
+          ]
+        },
+        "zeppelin": {
+          "displayName": "Zeppelin",
+          "category": "ANALYSIS",
+          "versions": [
+            {
+              "displayName": "0.7.2.7",
+              "image": "nerc/zeppelin:0.7.2.7",
+              "connectImage": "nerc/zeppelin-connect:1.2.1"
+            }
+          ]
+        }
+      }
+    }
