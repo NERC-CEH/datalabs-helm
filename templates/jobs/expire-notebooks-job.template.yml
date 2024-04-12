@@ -13,7 +13,7 @@ spec:
           serviceAccountName: infrastructure-service-account
           containers:
           - name: expire-notebooks
-            image: {{ .Values.infrastructureApi.imageName }}:{{ .Chart.AppVersion }}
+            image: {{ .Values.infrastructureApi.imageName }}:{{ .Values.appVersion }}
             imagePullPolicy: IfNotPresent
             command: ["/bin/sh", "-c"]
             args:

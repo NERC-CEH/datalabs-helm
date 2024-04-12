@@ -37,8 +37,8 @@ Common labels
 {{- define "datalab.labels" -}}
 helm.sh/chart: {{ include "datalab.chart" . }}
 {{ include "datalab.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- if .Values.appVersion }}
+app.kubernetes.io/version: {{ .Values.appVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}

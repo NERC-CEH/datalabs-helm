@@ -22,7 +22,7 @@ spec:
       serviceAccountName: infrastructure-service-account
       containers:
         - name: infrastructure-api
-          image: {{ .Values.infrastructureApi.imageName }}:{{ .Chart.AppVersion }}
+          image: {{ .Values.infrastructureApi.imageName }}:{{ .Values.appVersion }}
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -98,7 +98,7 @@ spec:
               mountPath: /usr/src/app/node_modules/common/src/config/notifications_config.json
               subPath: notifications_config.json
         - name: infrastructure-watcher
-          image: {{ .Values.infrastructureApi.imageName }}:{{ .Chart.AppVersion }}
+          image: {{ .Values.infrastructureApi.imageName }}:{{ .Values.appVersion }}
           imagePullPolicy: IfNotPresent
           command: ["node", "watcher.js"]
           env:

@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: datalab-api
-          image: {{ .Values.datalabApi.imageName }}:{{ .Chart.AppVersion }}
+          image: {{ .Values.datalabApi.imageName }}:{{ .Values.appVersion }}
           imagePullPolicy: IfNotPresent
           resources:
             requests:

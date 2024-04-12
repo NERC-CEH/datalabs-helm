@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: datalab-auth
-          image: {{ .Values.datalabAuth.imageName }}:{{ .Chart.AppVersion }}
+          image: {{ .Values.datalabAuth.imageName }}:{{ .Values.appVersion }}
           imagePullPolicy: IfNotPresent
           resources:
             requests:
