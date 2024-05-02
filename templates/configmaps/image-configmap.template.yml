@@ -95,17 +95,8 @@ data:
           "versions": [
             {
               "default": true,
-              "displayName": "4.3.1",
-              "image": "nerc/rshiny:4.3.1"
-            },
-            {
-              "default": true,
-              "displayName": "4.2.1",
-              "image": "nerc/rshiny:4.2.1"
-            },
-            {
-              "displayName": "4.0.4",
-              "image": "nerc/rshiny:4.0.4f"
+              "displayName": "4.4.0",
+              "image": "nerc/rshiny:4.4.0"
             }
           ],
           "userActionOverrides": {
@@ -119,18 +110,8 @@ data:
           "versions": [
             {
               "default": true,
-              "displayName": "4.3.1",
-              "image": "nerc/rstudio:4.3.1",
-              "connectImage": "nerc/zeppelin-connect:1.2.1"
-            },
-            {
-              "displayName": "4.2.1",
-              "image": "nerc/rstudio:4.2.1",
-              "connectImage": "nerc/zeppelin-connect:1.2.1"
-            },
-            {
-              "displayName": "4.0.4",
-              "image": "nerc/rstudio:4.0.4d",
+              "displayName": "4.4.0",
+              "image": "nerc/rstudio:4.4.0",
               "connectImage": "nerc/zeppelin-connect:1.2.1"
             }
           ]
