@@ -96,7 +96,7 @@ data:
             {
               "default": true,
               "displayName": "4.4.0",
-              "image": "nerc/rshiny:4.4.0"
+              "image": "nerc/rshiny:4.4.0a"
             }
           ],
           "userActionOverrides": {
