@@ -111,7 +111,7 @@ data:
             {
               "default": true,
               "displayName": "4.4.0",
-              "image": "nerc/rstudio:4.4.0a",
+              "image": "nerc/rstudio:4.4.0b",
               "connectImage": "nerc/zeppelin-connect:1.2.1"
             }
           ]
