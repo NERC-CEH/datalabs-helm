@@ -14,6 +14,7 @@ dataVolumeSize:
 internalVolume:
 internalVolumeSize:
 internalVolumeStorageClass:
+userVolumeStorageClass:
 sharedRLibs: /data/packages/R/%p/%v
 maxBodySize: 500m
 
