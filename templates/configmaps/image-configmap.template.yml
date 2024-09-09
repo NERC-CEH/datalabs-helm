@@ -33,7 +33,7 @@ data:
           "category": "COMPUTE",
           "versions": [
             {
-              "image": "daskdev/dask:2.30.0"
+              "image": "daskdev/dask:2024.8.2"
             }
           ]
         },
@@ -42,8 +42,8 @@ data:
           "category": "ANALYSIS",
           "versions": [
             {
-              "displayName": "Dask 2023.1/Spark 3.3.0",
-              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+              "displayName": "Jupyter",
+              "image": "nerc/jupyterlab:f607245ab38953057074429-spark-3.5.2"
             }
           ]
         },
@@ -52,8 +52,8 @@ data:
           "category": "ANALYSIS",
           "versions": [
             {
-              "displayName": "Dask 2023.1/Spark 3.3.0",
-              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+              "displayName": "JupyterLab",
+              "image": "nerc/jupyterlab:f607245ab38953057074429-spark-3.5.2"
             }
           ]
         },
@@ -83,8 +83,8 @@ data:
           "userCanChooseConda": true,
           "versions": [
             {
-              "displayName": "Dask 2023.1/Spark 3.3.0",
-              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+              "displayName": "Panel",
+              "image": "nerc/jupyterlab:f607245ab38953057074429-spark-3.5.2"
             }
           ]
         },
@@ -96,7 +96,7 @@ data:
             {
               "default": true,
               "displayName": "4.4.0",
-              "image": "nerc/rshiny:4.4.0a"
+              "image": "nerc/rshiny:4.4.0b"
             }
           ],
           "userActionOverrides": {
@@ -111,7 +111,7 @@ data:
             {
               "default": true,
               "displayName": "4.4.0",
-              "image": "nerc/rstudio:4.4.0b",
+              "image": "nerc/rstudio:4.4.0c",
               "connectImage": "nerc/zeppelin-connect:1.2.1"
             }
           ]
@@ -122,7 +122,7 @@ data:
           "versions": [
             {
               "displayName": "Streamlit",
-              "image": "nerc/jupyterlab:ee1e157f36f5-spark-3.3.0"
+              "image": "nerc/jupyterlab:f607245ab38953057074429-spark-3.5.2"
             }
           ],
           "userCanChooseFile": true,
@@ -144,8 +144,8 @@ data:
           "userCanChooseFile": true,
           "versions": [
             {
-              "displayName": "Dask 2023.1/Spark 3.3.0",
-              "image": "nerc/jupyterlab:c4e407bfedbb-spark-3.3.0"
+              "displayName": "Voila",
+              "image": "nerc/jupyterlab:f607245ab38953057074429-spark-3.5.2"
             }
           ]
         },
