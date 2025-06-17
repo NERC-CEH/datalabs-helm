@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.datalabName }}-internal-claim
+  name: {{ .Values.internalVolume }}
   namespace: {{ .Values.namespace }}
   annotations:
     volume.beta.kubernetes.io/storage-class: {{ .Values.internalVolumeStorageClass }}
